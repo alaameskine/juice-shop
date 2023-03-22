@@ -19,7 +19,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarqube') {
                     sh 'npm install sonarqube-scanner --save-dev'
-                    sh './node_modules/.bin/sonar-scanner'
+                    sh './node_modules/.bin/sonar-scanner'  
                 }
             }
         }
