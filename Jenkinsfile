@@ -3,14 +3,7 @@ pipeline {
     tools {
         nodejs "NodeJS"
     }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'npm install'   
-            }
-        }
-    
-        stage('SonarQube Analysis') {
+     stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
                     sh 'npm install sonarqube-scanner --save-dev'
@@ -18,6 +11,14 @@ pipeline {
                 }
             }
         }
+        
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'   
+            }
+        }
+    
     }
     post {
         always {
